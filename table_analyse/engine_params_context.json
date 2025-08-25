@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "version": "0.3",
+    "created_at": "2025-08-25",
+    "notes": "情境修正以“百分点”加减。仅作为小幅系统性偏置；剥削仍由 delta 触发。"
+  },
+
+  "stages": {
+    "early":  { "vpip":  0.5, "pfr":  0.3, "ats":  0.6, "threebet":  0.2 },
+    "mid":    { "vpip":  0.0, "pfr":  0.0, "ats":  0.0, "threebet":  -0.1 },
+    "bubble": { "vpip":  -1.2, "pfr":  -1.2, "ats":  -1.5, "threebet":  -0.6 },
+    "itm":    { "vpip":  -0.6, "pfr":  -0.8, "ats":  -0.8, "threebet":  -0.3 },
+    "ft":     { "vpip":  -1.0, "pfr":  -1.2, "ats":  -1.0, "threebet":  -0.4 }
+  },
+
+  "field_size": {
+    "small_<=500":   { "risk_premium": -0.2 },
+    "medium_<=2000": { "risk_premium":  0.0 },
+    "large_>2000":   { "risk_premium":  0.3 }
+  },
+
+  "pko": {
+    "enabled": true,
+    "notes": "PKO 场景默认略偏进攻；具体覆盖率修正在策略层或调用处细化。",
+    "bounty_coverage_steps": [
+      { "ratio": 0.0,  "ats":  0.0, "threebet":  0.0 },
+      { "ratio": 0.5,  "ats": 0.6, "threebet": 0.4 },
+      { "ratio": 1.0,  "ats": 1.2, "threebet": 0.8 }
+    ]
+  },
+
+  "blind_level_minutes": {
+    "<=8":  { "ats": -0.4, "threebet": -0.3 },
+    "9-12": { "ats":  0.0, "threebet":  0.0 },
+    ">=13": { "ats": 0.4, "threebet": 0.2 }
+  }
+}
